@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Location Reveal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+      color: #2c3e50;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .stat-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .cache-list {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 16px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .cache-list h2 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .cache-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+    }
+
+    .cache-item:last-child {
+      border-bottom: none;
+    }
+
+    .cache-username {
+      font-weight: 600;
+    }
+
+    .cache-location {
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .empty-state {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 12px;
+      padding: 20px 0;
+    }
+
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .credits {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    /* Scrollbar styling */
+    .cache-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .cache-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .cache-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .cache-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+    <img src="icons/128.png" alt="Extension Icon" style="display:block;margin:0 auto 12px;width:64px;height:64px;"/>
+  <h1>
+    <span>🌍</span>
+    <span>X Location Reveal</span>
+  </h1>
+  <p class="subtitle">Hover over usernames to see their location</p>
+
+  <div class="stats">
+    <div class="stat-row">
+      <span class="stat-label">Cached Profiles</span>
+      <span class="stat-value" id="cacheCount">0</span>
+    </div>
+  </div>
+
+  <div class="cache-list">
+    <h2>Recent Profiles</h2>
+    <div id="cacheItems">
+      <div class="empty-state">No profiles cached yet. Hover over usernames on X/Twitter!</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Hover over any @username, profile pic, or name to reveal location
+  </div>
+  <div class="credits">Made by KJR Labs</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
