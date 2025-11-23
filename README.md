@@ -58,7 +58,3 @@ When you hover over usernames, the extension:
 - Extension automatically handles this
 - Cached data will still show
 - Wait a few minutes and try again
-
-## License
-
-MIT
